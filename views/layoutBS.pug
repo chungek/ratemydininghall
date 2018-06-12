@@ -1,23 +1,316 @@
 doctype html
 html(lang="en")
   head
-    title= title
-    meta(charset="utf-8")
-    meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+    meta(charset="UTF-8")
+    title RateMyDiningHall
     link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous")
-    link(rel='stylesheet', href='/stylesheets/style.css')
-    block head
+    link(rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
+    link(rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css")
+    style.
+      @import url('https://fonts.googleapis.com/css?family=PT+Sans');
+      @import url('https://fonts.googleapis.com/css?family=PT+Serif');
+      h1, h4, h5, h6 {
+      font-family: 'PT Sans', 'Helvetica', 'Arial';;
+      }
+      h2 {
+      padding-left: 50px;
+      padding-top: 20px;
+      }
+      html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'PT Serif', 'Helvetica', 'Arial';
+      }
+      #top-bar {
+      width: 100%;
+      background: #F1F1F1; /* light gray */
+      border-bottom: 1px solid #D4D4D4; /* dark gray "underline" */
+      height: 25px;
+      }
+      .normal-wrapper {
+      width: 900px;
+      margin: 0 auto;
+      padding: 15px 40px;
+      overflow: auto;
+      }
+      .logo-icon {
+      color: #000000;
+      font-size: 60pt;
+      float: left;
+      }
+      h1 {
+      float: left;
+      margin: 21px 0 0 25px;
+      }
+      #navbar {
+      list-style-type: none; /* remove bullet points */
+      margin: 15px 50px 0 0;
+      float: right;
+      font-size: 16pt;
+      }
+      #navbar li {
+      display: inline; /* make items horizontal */
+      }
+      #navbar li a:link, #navbar li a:visited, #navbar li a:active {
+      text-decoration: none; /* remove underline */
+      color: #000000;
+      padding: 0 16px 0 10px; /* space links apart */
+      margin: 0;
+      border-right: 2px solid #B4B4B4; /* divider */
+      }
+      #navbar li a:link.last-link {
+      /* remove divider */
+      border-right: 0px;
+      }
+      #navbar li a:hover {
+      /* change color on hover (mouseover) */
+      color: #EB6361;
+      }
+      #top-color-splash {
+      width: 100%;
+      height: 4px;
+      background: #EB6361;
+      }
+      .one-third {
+      width: 40%;
+      float: left;
+      box-sizing: border-box; /* ensure padding and borders do not increase the size */
+      margin-top: 20px;
+      }
+      .two-third {
+      width: 60%;
+      float: left;
+      box-sizing: border-box; /* ensure padding and borders do not increase the size */
+      padding-left: 40px;
+      text-align: right;
+      margin-top: 20px;
+      }
+      .featured-image {
+      max-width: 500px; /* reduce image size while maintaining aspect ratio */
+      }
+      .no-margin-top {
+      margin-top: 0; /* remove margin on things like headers */
+      }
+      #quote-area {
+      background: #363636;
+      color: #FFFFFF;
+      text-align: center;
+      padding: 15px 0;
+      }
+      h3 {
+      font-weight: normal;
+      font-size: 20pt;
+      margin-top: 0px;
+      }
+      h4 {
+      font-weight: normal;
+      font-size: 16pt;
+      margin-bottom: 0;
+      }
+      .icon-outer {
+      box-sizing: border-box; /* ensure padding and borders do not increase the size */
+      float: left;
+      width: 33.33%;
+      padding: 25px;
+      margin: 0;
+      text-align: center;
+      }
+      .icon-circle {
+      background: #EEEEEE;
+      color: #B4B4B4;
+      width: 200px;
+      height: 200px;
+      border-radius: 200px; /* make rounded corners */
+      margin: 0 auto;
+      border: 2px solid #D6D6D6;
+      box-sizing: border-box; /* ensure padding and borders do not increase the size */
+      font-size: 75pt;
+      padding: 30px 0 0 0;
+      cursor: pointer;
+      }
+      .icon-circle:hover {
+      /* change color on hover (mouseover) */
+      color: #FFFFFF;
+      background: #EB6361; /* red */
+      }
+      h5 {
+      margin: 15px 0 10px 0;
+      font-size: 20pt;
+      }
+      #footer {
+      width: 100%;
+      background: #F1F1F1; /* light gray */
+      border-top: 1px solid #D4D4D4; /* dark gray "topline" */
+      height: 150px;
+      }
+      .hidden {
+      display: none;
+      }
+      header {
+        padding-top: 5px;
+        position: absolute;
+        left: 10px;
+        width: 100%;
+        min-height: auto;
+        text-align: center;
+        color: #000;
+        background-image: url();
+        background-position: center;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        -o-background-size: cover;
+      }
+
+      header .header-content {
+        position: relative;
+        width: 100%;
+        padding: 0px;
+        text-align: center;
+      }
+
+
+      header .header-content .header-content-inner h1 {
+        margin-top: 0;
+        margin-bottom: 0;
+        color: BLACK;
+      }
+
+      .header-content-inner img {
+        float: left;
+      }
+      }
   body
-    ul.nav.nav-pills.nav-fill
-        li.nav-item
-          a.nav-link.active(href="/") Home
-        li.nav-item
-          a.nav-link.active(href="/cssdemo") CSSdemo
-        li.nav-item
-          a.nav-link.active(href="/imagedemo") Images
-        li.nav-item
-          a.nav-link.active(href="/formdemo") Forms
-    block content
-    script(src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous")
-    script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous")
-    script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous")
+    #top-bar
+    .normal-wrapper
+      #logo-container
+      header
+        .header-content
+          .header-content-inner
+            a(href="/")
+              img(src="/images/logo.jpg" style="width:80px;height:40px;border:0;")
+              h1 RateMyDiningHall
+
+      ul.navbar#navbar
+        li.home
+          a(href="/") Home
+        li.reviews
+          a(href="/reviews") Reviews
+        li.about
+          a(href="/about") About
+        li.contact
+          a(href="/contact") Contact
+
+    #top-color-splash
+    h2 Welcome!
+    .normal-wrapper
+      .one-third
+        h2.no-margin-top Welcome!
+
+        form(method='post')
+          p(style='white-space:pre;')
+            |   School:
+            input(type='text', name='school', value=school)
+            br
+            |   Dining Hall:
+            input(type='text', name='dininghall', value=dininghall)
+            br
+            |   Food Quality:
+            select.form-control.form-control-sm(type='text', name='quality', value=quality)
+              option 0
+              option 1
+              option 2
+              option 3
+              option 4
+              option 5
+              option 6
+              option 7
+              option 8
+              option 9
+              option 10
+            |   Food Variety:
+            select.form-control.form-control-sm(type='text', name='variety', value=variety)
+              option 0
+              option 1
+              option 2
+              option 3
+              option 4
+              option 5
+              option 6
+              option 7
+              option 8
+              option 9
+              option 10
+            input(type='submit', value='Submit')
+
+        p text
+        p
+          | text
+        p text
+      .two-third
+        //insert something here
+
+    #quote-area
+      .normal-wrapper
+        h3 “You don't need a silver fork to eat good food.”
+        h4 -Paul Prudhomme
+    .normal-wrapper
+      .icon-outer
+        .icon-circle
+          i.fa.fa-youtube
+        h5 YouTube
+        p text3
+      .icon-outer
+        .icon-circle
+          i.fa.fa-camera-retro
+        h5 Instagram
+        p
+          | text2
+      .icon-outer
+        .icon-circle
+          i.fa.fa-dollar
+        h5 Donate
+        p
+          | text3
+    #footer
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript")
+    script(src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript")
+    script(type="text/javascript").
+      /* JavaScript goes here, at the bottom of the page */
+      $(document).ready(function() {
+      // run once the page is ready
+      var time = 2500;
+      // get the image containers
+      $im1 = $('#f-image-1');
+      $im2 = $('#f-image-2');
+      $im3 = $('#f-image-3');
+      setInterval(function(){
+      // call function every x milliseconds (defined in time variable above)
+      changeImage();
+      }, time);
+      var currentImage = 1;
+      function changeImage(){
+      switch(currentImage) {
+      case 1:
+      // show image 2
+      $im1.hide();
+      $im2.show();
+      $im3.hide();
+      currentImage = 2;
+      break;
+      case 2:
+      // show image 3
+      $im1.hide();
+      $im2.hide();
+      $im3.show();
+      currentImage = 3;
+      break;
+      default:
+      // show image 1
+      $im1.show();
+      $im2.hide();
+      $im3.hide();
+      currentImage = 1;
+      }
+      }
+      });
