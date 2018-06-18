@@ -1,0 +1,29 @@
+extends layoutBS
+
+block content    
+  h1.nofloat Sign Up
+  form(method="post" action="saveProfile")
+    .formGroup
+      label First Name
+      input(type="text" name="first_name")
+    .formGroup
+      label Last Name
+      input(type="text" name="last_name")
+    .formGroup
+      label Username
+      input(type="text" name="user_id")
+    .formGroup
+      label School
+      input(type="text" name="school")
+    input(type="submit")
+  hr
+  h1 List of All Profiles
+  form(method="post" action="deleteProfle")
+    ol
+      each profile in profiles
+        li
+          input(name="deleteName" value=profile.first_name type="checkbox")
+          e #{profile.first_name} --
+          i #{profile.last_name}
+    input(type="submit" value="Delete checked items")
+    hr
