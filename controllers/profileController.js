@@ -8,9 +8,9 @@ exports.getAllProfiles = ( req, res ) => {
   console.log('in getAllProfiles')
   Profile.find( {} )
     .exec()
-    .then( ( profiles ) => {
+    .then( ( Profiles ) => {
       res.render( 'profile', {
-        profiles: profiles
+        Profiles: Profiles
       } );
     } )
     .catch( ( error ) => {
