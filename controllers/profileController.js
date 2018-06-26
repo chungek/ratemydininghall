@@ -1,5 +1,5 @@
 'use strict';
-const Profile = require( '../models/profile' );
+const Profile = require( '../models/Profile' );
 console.log("loading the profiles Controller")
 
 
@@ -10,7 +10,7 @@ exports.getAllProfiles = ( req, res ) => {
     .exec()
     .then( ( Profiles ) => {
       res.render( 'profile', {
-        Profiles: Profiles
+        profiles: profiles
       } );
     } )
     .catch( ( error ) => {
