@@ -79,7 +79,7 @@ html(lang="en")
       }
       .one-third {
       width: 40%;
-      float: left;
+      float: inherit;
       box-sizing: border-box; /* ensure padding and borders do not increase the size */
       margin-top: 20px;
       }
@@ -191,7 +191,7 @@ html(lang="en")
         background-size: cover;
         -o-background-size: cover;
       }
-
+      
       header .header-content {
         position: relative;
         width: 100%;
@@ -258,20 +258,20 @@ html(lang="en")
     .normal-wrapper
       .icon-outer
         .icon-circle1
-          a(href="https://youtube.com/")
+          a(href="https://youtube.com/", target='_blank')
             i.fa.fa-youtube
         h5 YouTube
         p text1
       .icon-outer
         .icon-circle2
-          a(href="https://instagram.com/")
+          a(href="https://instagram.com/", target='_blank')
             i.fa.fa-camera-retro
         h5 Instagram
         p
           | text2
       .icon-outer
         .icon-circle3
-          a(href="https://venmo.com/")
+          a(href="https://venmo.com/", target='_blank')
             i.fa.fa-dollar
         h5 Donate
         p

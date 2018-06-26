@@ -4,11 +4,20 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var profileController = require('./controllers/profileController')
+const session = require("express-session")
 
 var indexRouter = require('./routes/index');
 var reviewsRouter = require('./routes/reviews');
 var aboutRouter = require('./routes/about');
 var contactRouter = require('./routes/contact');
+
+
+var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+
+// here we set up authentication with passport
+const passport = require('passport')
+const configPassport = require('./config/passport')
+configPassport(passport)
 
 var app = express();
 
@@ -25,12 +34,78 @@ db.once('open', function() {
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+//auth
+app.use(passport.initialize());
+app.use(passport.session());
+
 //middleware to process the req obj and make it more useful
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+
+//Authentication stuff
+// app.use(session({secret: 'zzbbyanana'}));
+// app.use(passport.initialize)
+// app.use(passport.session)
+
+// here are the authentication routes
+app.get('/loginerror', function(req,res){
+  res.render('loginerror',{})
+})
+
+app.get('/login', function(req,res){
+  res.render('login',{})
+})
+
+// we require them to be logged in to see their profile
+app.get('/profile', isLoggedIn, function(req, res) {
+        res.render('profile', {
+            user : req.user // get the user out of session and pass to template
+        });
+    });
+
+// route for logging out
+app.get('/logout', function(req, res) {
+        req.logout();
+        res.redirect('/');
+    });
+    // =====================================
+    // GOOGLE ROUTES =======================
+    // =====================================
+    // send to google to do the authentication
+    // profile gets us their basic information including their name
+    // email gets their emails
+    app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
+
+    // the callback after google has authenticated the user
+    app.get('/auth/google/callback',
+            passport.authenticate('google', {
+                    successRedirect : '/profile',
+                    failureRedirect : '/loginerror'
+            }));
+
+    app.get('/login/authorized',
+            passport.authenticate('google', {
+                    successRedirect : '/profile',
+                    failureRedirect : '/loginerror'
+            }));
+
+// route middleware to make sure a user is logged in
+function isLoggedIn(req, res, next) {
+    console.log("checking to see if they are authenticated!")
+    // if user is authenticated in the session, carry on
+    if (req.isAuthenticated()){
+      console.log("user has been Authenticated")
+      return next();
+    }
+
+    console.log("user has not been authenticated...")
+    // if they aren't redirect them to the home page
+    res.redirect('/login');
+}
 
 //routing
 app.use('/', indexRouter);
