@@ -8,4 +8,4 @@ var profileSchema = mongoose.Schema( {
   school: String,
 } );
 
-module.exports = mongoose.model( 'profile', profileSchema );
+module.exports = mongoose.model( 'Profile', profileSchema );
