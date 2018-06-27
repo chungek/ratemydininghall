@@ -259,7 +259,7 @@ html(lang="en")
         li.contact
           a(href="/contact") Contact
         li.signin
-          if User.googlename != null
+          if User == null
             a.link.last-link(href="/profile") Sign In
           else
             
