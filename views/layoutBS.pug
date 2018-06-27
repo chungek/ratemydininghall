@@ -99,13 +99,13 @@ html(lang="en")
       }
       .one-third {
       width: 40%;
-      float: inherit;
+      float: left;
       box-sizing: border-box; /* ensure padding and borders do not increase the size */
       margin-top: 20px;
       }
       .two-third {
       width: 60%;
-      float: left;
+      float: right;
       box-sizing: border-box; /* ensure padding and borders do not increase the size */
       padding-left: 40px;
       text-align: right;
@@ -260,14 +260,12 @@ html(lang="en")
     .normal-wrapper
       .one-third
         h2.no-margin-top ugly for now
-        
         body
           block content
       .two-third
         img#f-image-1.featured-image(src='/images/deis.jpg', style='display: none;') 
         img#f-image-2.featured-image(src='/images/foodcourt.jpg', style='display: inline;')
         img#f-image-3.featured-image(src='/images/sherm.jpg', style='display: none;')
-
         p text
         p
           | text
