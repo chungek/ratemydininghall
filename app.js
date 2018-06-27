@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var profileController = require('./controllers/profileController')
-var reviewsController = require('./controllers/profileController')
+var reviewsController = require('./controllers/reviewsController')
 const session = require("express-session")
 
 var indexRouter = require('./routes/index');
@@ -125,7 +125,7 @@ app.post('/deleteProfile', profileController.deleteProfile );
 //review routing but using a controller
 console.log('before my reviews code')
 console.dir()
-console.dir(profileController)
+console.dir(reviewsController)
 app.get('/reviews', reviewsController.getAllReviews);
 app.post('/saveReview', reviewsController.saveReview );
 app.post('/deleteReview', reviewsController.deleteReview );
