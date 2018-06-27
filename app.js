@@ -4,10 +4,11 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var profileController = require('./controllers/profileController')
+var reviewsController = require('./controllers/profileController')
 const session = require("express-session")
 
 var indexRouter = require('./routes/index');
-var reviewsRouter = require('./routes/reviews');
+// var reviewsRouter = require('./routes/reviews');
 var aboutRouter = require('./routes/about');
 var contactRouter = require('./routes/contact');
 
@@ -109,7 +110,7 @@ function isLoggedIn(req, res, next) {
 
 //routing
 app.use('/', indexRouter);
-app.use('/reviews', reviewsRouter);
+// app.use('/reviews', reviewsRouter);
 app.use('/about', aboutRouter);
 app.use('/contact', contactRouter);
 
@@ -120,6 +121,14 @@ console.dir(profileController)
 app.get('/profile', profileController.getAllProfiles);
 app.post('/saveProfile', profileController.saveProfile );
 app.post('/deleteProfile', profileController.deleteProfile );
+
+//review routing but using a controller
+console.log('before my reviews code')
+console.dir()
+console.dir(profileController)
+app.get('/reviews', reviewsController.getAllReviews);
+app.post('/saveReview', reviewsController.saveReview );
+app.post('/deleteReview', reviewsController.deleteReview );
 
 app.use('/', function(req, res, next) {
   console.log("in / controller")
