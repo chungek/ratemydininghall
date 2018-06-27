@@ -2,7 +2,7 @@ extends layoutBS
 
 block content 
   h1.nofloat Add a Review
-  form(method='post')
+  form(method='post' action="saveReview")
     p(style='white-space:pre;')
       |   Name:
       input(type='text', name='name', value=name)
