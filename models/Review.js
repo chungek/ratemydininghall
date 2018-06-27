@@ -5,8 +5,8 @@ var reviewSchema = mongoose.Schema( {
   name: String,
   school: String,
   dininghall: String,
-  fQuality: var,
-  fVariety: var
+  fQuality: Number,
+  fVariety: Number
 } );
 
 module.exports = mongoose.model( 'Reviews', reviewSchema );
