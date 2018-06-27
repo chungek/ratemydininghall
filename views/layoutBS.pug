@@ -223,21 +223,17 @@ html(lang="en")
         background-size: cover;
         -o-background-size: cover;
       }
-      
       header .header-content {
         position: relative;
         width: 100%;
         padding: 0px;
         text-align: center;
       }
-
-
       header .header-content .header-content-inner h1 {
         margin-top: 0;
         margin-bottom: 0;
         color: BLACK;
       }
-
       .header-content-inner img {
         float: left;
       }
@@ -265,16 +261,15 @@ html(lang="en")
         li.contact
           a(href="/contact") Contact
         li.signin
-          if User == null
+          if !isLoggedIn
             a.link.last-link(href="/profile") Sign In
           else
             
             a.link.last-link(href="/") Sign Out
     #top-color-splash
-    h2 Welcome!
+    h2 #{title}
     .normal-wrapper
       .one-third
-        h2.no-margin-top ugly for now
         body
           block content
       .two-third
@@ -292,21 +287,21 @@ html(lang="en")
           a(href="https://youtube.com/", target='_blank')
             i.fa.fa-youtube
         h5 YouTube
-        p text1
+        p Subscribe to our channel!
       .icon-outer
         .icon-circle2
           a(href="https://instagram.com/", target='_blank')
             i.fa.fa-camera-retro
         h5 Instagram
-        p
-          | text2
+        p 
+          | Follow our official account @rateBadFood
       .icon-outer
         .icon-circle3
           a(href="https://venmo.com/", target='_blank')
             i.fa.fa-dollar
         h5 Donate
-        p
-          | text3
+        p 
+          | Please shoot all donations to @ekkheng-chung
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript")
     script(src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript")
     script(type="text/javascript").
